@@ -1,3 +1,5 @@
+import time
+
 def list_to_str(ar):
     res = ''
     for i in ar:
@@ -28,7 +30,10 @@ def bin_sum(A, B):
     return C[::-1]
 
 
-def main_binsum(file_in, file_out):
+def main_binsum(file_in, file_out, file_t):
+    t_start = time.perf_counter()
+
+    file_time = open(file_t, 'w+')
     file_input = open(file_in, 'r')
     file_output = open(file_out, 'w+')
     n1, n2 = map(str, file_input.read().split())
@@ -41,5 +46,8 @@ def main_binsum(file_in, file_out):
     C = bin_sum(A, B)
     file_output.write(list_to_str(C))
 
+    file_time.write(f'время выполнения: {time.perf_counter() - t_start}')
+
     file_input.close()
     file_output.close()
+
