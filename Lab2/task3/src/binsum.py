@@ -28,17 +28,18 @@ def bin_sum(A, B):
     return C[::-1]
 
 
-file_input = open('input.txt', 'r')
-file_output = open('output.txt', 'w+')
-n1, n2 = map(str, file_input.read().split())
-if (not (1 <= int(n1) <= 10 ** 3)) or (not (1 <= int(n2) <= 10 ** 3)):
-    file_output.write('One of the numbers goes out of bounds')
-    exit('One of the numbers goes out of bounds')
+def main_binsum(file_in, file_out):
+    file_input = open(file_in, 'r')
+    file_output = open(file_out, 'w+')
+    n1, n2 = map(str, file_input.read().split())
+    if (not (1 <= int(n1) <= 10 ** 3)) or (not (1 <= int(n2) <= 10 ** 3)):
+        file_output.write('One of the numbers goes out of bounds')
+        exit('One of the numbers goes out of bounds')
 
-A, B = str_to_list(n1), str_to_list(n2)
+    A, B = str_to_list(n1), str_to_list(n2)
 
-C = bin_sum(A, B)
-file_output.write(list_to_str(C))
+    C = bin_sum(A, B)
+    file_output.write(list_to_str(C))
 
-file_input.close()
-file_output.close()
+    file_input.close()
+    file_output.close()
