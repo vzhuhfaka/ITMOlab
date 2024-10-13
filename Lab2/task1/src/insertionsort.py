@@ -13,10 +13,12 @@ def insertionsort(file_in, file_out):
 
     if not (1 <= n <= 10**3):
         file_output.write('Wrong first number')
+        file_output.close()
         exit('Wrong first number')
 
     if not checker(s):
         file_output.write('One of the numbers goes out of bounds')
+        file_output.close()
         exit('One of the numbers goes out of bounds')
 
     for i in range(1, len(s)):
