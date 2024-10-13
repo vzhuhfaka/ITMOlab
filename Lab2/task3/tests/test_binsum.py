@@ -10,5 +10,5 @@ def txt_to_str(file_txt):
 class TestBinSum(unittest.TestCase):
 
     def test_binsum(self):
-        main_binsum('test_input.txt', 'test_output.txt')
+        main_binsum('test_input.txt', 'test_output.txt', 'test_time.txt')
         self.assertEqual(txt_to_str('test_output.txt'), '111')
