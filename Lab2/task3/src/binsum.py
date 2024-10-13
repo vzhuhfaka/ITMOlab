@@ -36,8 +36,9 @@ def main_binsum(file_in, file_out, file_t):
     file_time = open(file_t, 'w+')
     file_input = open(file_in, 'r')
     file_output = open(file_out, 'w+')
+
     n1, n2 = map(str, file_input.read().split())
-    if (not (1 <= int(n1) <= 10 ** 3)) or (not (1 <= int(n2) <= 10 ** 3)):
+    if (not (1 <= len(n1) <= 10 ** 3)) or (not (1 <= len(n2) <= 10 ** 3)):
         file_output.write('One of the numbers goes out of bounds')
         exit('One of the numbers goes out of bounds')
 
@@ -50,4 +51,4 @@ def main_binsum(file_in, file_out, file_t):
 
     file_input.close()
     file_output.close()
-
+    file_time.close()
