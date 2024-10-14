@@ -1,6 +1,6 @@
 def checker(ar):
     for i in ar:
-        if abs(i) > 10**9:
+        if abs(i) > 10**3:
             return False
     return True
 
@@ -13,12 +13,19 @@ def linearfinder(file_in, file_out):
     v = int(file_input.readline())
 
     if not(0 <= len(s) <= 10**3):
-        file_output.write('Too many elements')
-        exit('Too many elements')
+        file_output.write('Слишком много элементов')
+        file_output.close()
+        exit('Слишком много элементов')
+
+    if abs(v) > 3**10:
+        file_output.write('Число, которое необходимо найти, выходит за ограничение')
+        file_output.close()
+        exit('Число, которое необходимо найти, выходит за ограничение')
 
     if not checker(s):
-        file_output.write('One of the numbers goes out of bounds')
-        exit('One of the numbers goes out of bounds')
+        file_output.write('Одно из чисел выходит за ограничение')
+        file_output.close()
+        exit('Одно из чисел выходит за ограничение')
 
     res_i = []
     for i in range(len(s)):
