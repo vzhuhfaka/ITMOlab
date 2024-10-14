@@ -39,8 +39,8 @@ def main_binsum(file_in, file_out, file_t):
 
     n1, n2 = map(str, file_input.read().split())
     if (not (1 <= len(n1) <= 10 ** 3)) or (not (1 <= len(n2) <= 10 ** 3)):
-        file_output.write('One of the numbers goes out of bounds')
-        exit('One of the numbers goes out of bounds')
+        file_output.write('Одно из чисел выходит за ограничение')
+        exit('Одно из чисел выходит за ограничение')
 
     A, B = str_to_list(n1), str_to_list(n2)
 
