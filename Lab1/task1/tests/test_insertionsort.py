@@ -1,5 +1,5 @@
 import unittest
-from Lab2.task1.src.insertionsort import insertionsort
+from Lab1.task1.src.insertionsort import insertionsort
 
 def txt_to_list(file_txt):
     res = []

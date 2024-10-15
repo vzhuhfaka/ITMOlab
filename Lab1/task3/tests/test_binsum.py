@@ -1,5 +1,5 @@
 import unittest
-from Lab2.task3.src.binsum import main_binsum
+from Lab1.task3.src.binsum import main_binsum
 
 
 def txt_to_str(file_txt):
