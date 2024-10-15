@@ -1,5 +1,5 @@
 import unittest
-from Lab2.task2.src.linearfinder import linearfinder
+from Lab1.task2.src.linearfinder import linearfinder
 
 def txt_to_list(file_txt):
     res = []
