@@ -10,5 +10,8 @@
 
 ## Запуск проекта
 1. Клонирование репозитория: https://github.com/vzhuhfaka/AlgoritmLAB1.git
-2. Перейти в папку с проектом: cd AlgoritmLAB1/Lab2/task(n)
+2. Перейти в папку с проектом: cd AlgoritmLAB1/Lab1/task(n)
 3. Запустить программу: python src/(filename).py
+
+## Тестирование
+Для запуска тестов выполните: pytest Lab1
