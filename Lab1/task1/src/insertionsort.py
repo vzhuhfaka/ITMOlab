@@ -45,7 +45,7 @@ def insertionsort(file_in, file_out, file_t):
     for elem in s:
         file_output.write(f'{elem} ')
 
-    file_info.write(f'время выполнения: {time.perf_counter() - t_start} с\nзатраченная память: {tracemalloc.get_traced_memory()[1]/2**20} Мб')
+    file_info.write(f'time: {time.perf_counter() - t_start} s\nmemory: {tracemalloc.get_traced_memory()[1]/2**20} Mb')
 
     file_input.close()
     file_output.close()

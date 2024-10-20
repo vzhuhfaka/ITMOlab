@@ -47,7 +47,7 @@ def main_binsum(file_in, file_out, file_t):
     C = bin_sum(A, B)
     file_output.write(list_to_str(C))
 
-    file_time.write(f'время выполнения: {time.perf_counter() - t_start}')
+    file_time.write(f'time: {time.perf_counter() - t_start}')
 
     file_input.close()
     file_output.close()

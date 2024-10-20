@@ -13,5 +13,5 @@ def txt_to_list(file_txt):
 class TestLinearFinder(unittest.TestCase):
 
     def test_linearfinder(self):
-        linearfinder('test_input.txt', 'test_output.txt')
-        self.assertEqual(txt_to_list('test_output.txt'), ['3', '9'])
+        linearfinder('Lab1/task2/tests/test_input.txt', 'Lab1/task2/tests/test_output.txt')
+        self.assertEqual(txt_to_list('Lab1/task2/tests/test_output.txt'), ['3', '9'])
