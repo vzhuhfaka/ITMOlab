@@ -1,16 +1,30 @@
-def read_input(input_file):
-    with open(input_file, 'r') as f:
+def close_files(*args):
+    for i in args:
+        i.close()
+
+
+def list_to_str(ar):
+    res = ''
+    for i in ar:
+        res += str(i)
+    return str(int(res))
+
+
+def str_to_list(s):
+    s = str(s)
+    res = []
+    for i in s:
+        res.append(i)
+    return res
+
+
+def read_file(file):
+    with open(file, 'r') as f:
         return f.readlines()
 
 
-def write_info(info_file):
-    with open(info_file, 'w+') as f:
-        return f
-
-
-def write_output(output_file):
-    with open(output_file, 'w+') as f:
-        return f
+def write_file(file):
+    return open(file, 'w+')
 
 
 def txt_to_str(file_txt):
