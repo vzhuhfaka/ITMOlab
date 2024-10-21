@@ -1,3 +1,6 @@
+from utils import read_file, write_file, close_files
+
+
 def checker(ar):
     for i in ar:
         if abs(i) > 10**3:
@@ -6,25 +9,25 @@ def checker(ar):
 
 
 def linearfinder(file_in, file_out):
-    file_input = open(file_in, 'r')
-    file_output = open(file_out, 'w+')
+    file_input = read_file(file_in)
+    file_output = write_file(file_out)
 
-    s = [int(i) for i in file_input.readline().strip().split()]
-    v = int(file_input.readline())
+    s = [int(i) for i in file_input[0].strip().split()]
+    v = int(file_input[1])
 
     if not(0 <= len(s) <= 10**3):
         file_output.write('Слишком много элементов')
-        file_output.close()
+        close_files(file_output)
         exit('Слишком много элементов')
 
     if abs(v) > 3**10:
         file_output.write('Число, которое необходимо найти, выходит за ограничение')
-        file_output.close()
+        close_files(file_output)
         exit('Число, которое необходимо найти, выходит за ограничение')
 
     if not checker(s):
         file_output.write('Одно из чисел выходит за ограничение')
-        file_output.close()
+        close_files(file_output)
         exit('Одно из чисел выходит за ограничение')
 
     res_i = []
@@ -38,5 +41,4 @@ def linearfinder(file_in, file_out):
         else:
             file_output.write(str(res_i[i]) + ', ')
 
-    file_input.close()
-    file_output.close()
+    close_files(file_output)

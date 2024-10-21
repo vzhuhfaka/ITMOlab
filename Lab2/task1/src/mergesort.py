@@ -1,4 +1,5 @@
 import time, tracemalloc
+from utils import read_file, write_file, close_files
 
 
 def Merge(A, p, q, r):
@@ -37,11 +38,10 @@ def main(input_file, output_file, info_file):
     t_start = time.perf_counter()
     tracemalloc.start()
 
-    in_f = open(input_file, 'r').readlines()
-    out_f = open(output_file, 'w+')
-    info_f = open(info_file, 'w+')
+    in_f = read_file(input_file)
+    out_f = write_file(output_file)
+    info_f = write_file(info_file)
 
-    n = in_f[0].strip()
     A = [int(x) for x in in_f[1].split()]
 
     p, r = 0, len(A) - 1
@@ -56,3 +56,5 @@ def main(input_file, output_file, info_file):
         res_s += str(i) + ' '
 
     out_f.write(res_s)
+
+    close_files(out_f, info_f)

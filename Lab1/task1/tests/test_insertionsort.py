@@ -1,12 +1,6 @@
 import unittest
 from Lab1.task1.src.insertionsort import insertionsort
-
-def txt_to_list(file_txt):
-    res = []
-    with open(file_txt, 'r') as f:
-        for i in f.readline().split():
-            res.append(int(i))
-    return res
+from utils import txt_to_list
 
 
 class TestInsertionSort(unittest.TestCase):

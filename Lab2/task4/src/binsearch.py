@@ -1,4 +1,5 @@
 import time, tracemalloc
+from utils import read_file, write_file, close_files
 
 
 def BinSearch(A, n):
@@ -29,9 +30,9 @@ def search(input_file, output_file, info_file):
     t_start = time.perf_counter()
     tracemalloc.start()
 
-    in_f = open(input_file, 'r').readlines()
-    out_f = open(output_file, 'w+')
-    info_f = open(info_file, 'w+')
+    in_f = read_file(input_file)
+    out_f = write_file(output_file)
+    info_f = write_file(info_file)
 
     a = in_f[1].strip()
     b = in_f[3].strip()
@@ -43,5 +44,5 @@ def search(input_file, output_file, info_file):
     info_f.write(f'time: {time.perf_counter() - t_start} s\nmemory: {tracemalloc.get_traced_memory()[1] / 2 ** 20} Mb')
 
     tracemalloc.stop()
-    info_f.close()
-    out_f.close()
+
+    close_files(info_f, out_f)
