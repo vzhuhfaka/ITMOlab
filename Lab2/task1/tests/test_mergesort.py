@@ -1,13 +1,6 @@
 import unittest
 from Lab2.task1.src.mergesort import main
-
-
-def txt_to_list(file_txt):
-    res = []
-    with open(file_txt, 'r') as f:
-        for i in f.readline().split():
-            res.append(int(i))
-    return res
+from utils import txt_to_list
 
 
 class TestMegreSearch(unittest.TestCase):

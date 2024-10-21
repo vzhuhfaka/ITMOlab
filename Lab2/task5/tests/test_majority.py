@@ -1,10 +1,6 @@
 import unittest
 from Lab2.task5.src.majority import majority
-
-
-def txt_to_str(file_txt):
-    with open(file_txt, 'r') as f:
-        return f.readline()
+from utils import txt_to_str
 
 
 class TestBinSearch(unittest.TestCase):

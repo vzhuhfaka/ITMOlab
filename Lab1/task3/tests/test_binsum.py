@@ -1,10 +1,6 @@
 import unittest
 from Lab1.task3.src.binsum import main_binsum
-
-
-def txt_to_str(file_txt):
-    with open(file_txt, 'r') as f:
-        return f.readline()
+from utils import txt_to_str
 
 
 class TestBinSum(unittest.TestCase):
