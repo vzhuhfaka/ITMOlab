@@ -67,3 +67,4 @@ def main(input_file, output_file, info_file):
     out_f.write(res_s)
 
     close_files(out_f, info_f)
+
