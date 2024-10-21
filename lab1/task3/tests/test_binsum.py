@@ -1,6 +1,6 @@
 import unittest
 from lab1.task3.src.binsum import main_binsum
-from utils import txt_to_str
+from lab1.utils import txt_to_str
 
 
 class TestBinSum(unittest.TestCase):

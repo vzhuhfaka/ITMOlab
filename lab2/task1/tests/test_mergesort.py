@@ -1,6 +1,6 @@
 import unittest
 from lab2.task1.src.mergesort import main
-from utils import txt_to_list
+from lab2.utils import txt_to_list
 
 
 class TestMegreSearch(unittest.TestCase):

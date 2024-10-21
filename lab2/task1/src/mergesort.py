@@ -1,5 +1,5 @@
 import time, tracemalloc
-from utils import read_file, write_file, close_files
+from lab2.utils import read_file, write_file, close_files
 
 
 def Merge(A, p, q, r):
