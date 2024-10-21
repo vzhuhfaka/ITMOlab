@@ -13,17 +13,26 @@ def Merge(A, p, q, r):
     for j in range(n2):
         R.append(A[q + j + 1])
 
-    L.append(float('inf'))
-    R.append(float('inf'))
-
     i, j = 0, 0
-    for k in range(p, r + 1):
+    k = p
+    while i < len(L) and j < len(R):
         if L[i] <= R[j]:
             A[k] = L[i]
             i += 1
         else:
             A[k] = R[j]
             j += 1
+        k += 1
+
+    while i < len(L):
+        A[k] = L[i]
+        i += 1
+        k += 1
+
+    while j < len(R):
+        A[k] = R[j]
+        j += 1
+        k += 1
 
 
 def MergeSort(A, p, r):
