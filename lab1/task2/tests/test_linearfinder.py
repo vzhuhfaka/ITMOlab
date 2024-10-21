@@ -1,6 +1,6 @@
 import unittest
 from lab1.task2.src.linearfinder import linearfinder
-from utils import txt_to_numlist
+from lab1.utils import txt_to_numlist
 
 
 class TestLinearFinder(unittest.TestCase):

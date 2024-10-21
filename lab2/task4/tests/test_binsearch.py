@@ -1,6 +1,6 @@
 import unittest
 from lab2.task4.src.binsearch import search
-from utils import txt_to_list
+from lab2.utils import txt_to_list
 
 
 class TestBinSearch(unittest.TestCase):

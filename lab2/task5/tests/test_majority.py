@@ -1,6 +1,6 @@
 import unittest
 from lab2.task5.src.majority import majority
-from utils import txt_to_str
+from lab2.utils import txt_to_str
 
 
 class TestBinSearch(unittest.TestCase):

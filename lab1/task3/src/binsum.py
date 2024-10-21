@@ -1,5 +1,5 @@
 import time
-from utils import read_file,write_file, close_files, str_to_list, list_to_str
+from lab1.utils import read_file,write_file, close_files, str_to_list, list_to_str
 
 
 def bin_sum(A, B):

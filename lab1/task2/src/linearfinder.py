@@ -1,4 +1,4 @@
-from utils import read_file, write_file, close_files
+from lab1.utils import read_file, write_file, close_files
 
 
 def checker(ar):
