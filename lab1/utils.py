@@ -1,6 +1,13 @@
-def close_files(*args):
-    for i in args:
-        i.close()
+def write_info(file, _time, memory):
+    with open(file, 'w+') as f:
+        f.write(f'time: {_time} s\nmemory: {memory} Mb')
+
+
+def checker(ar,n):
+    for i in ar:
+        if abs(i) > 10**n:
+            return False
+    return True
 
 
 def list_to_str(ar):
@@ -23,8 +30,9 @@ def read_file(file):
         return f.readlines()
 
 
-def write_file(file):
-    return open(file, 'w+')
+def write_file(file, text):
+    with open(file, 'w+') as f:
+        f.write(text)
 
 
 def txt_to_str(file_txt):

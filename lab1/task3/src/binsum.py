@@ -1,5 +1,5 @@
-import time
-from lab1.utils import read_file,write_file, close_files, str_to_list, list_to_str
+import time, tracemalloc
+from lab1.utils import read_file, write_file, str_to_list, list_to_str, write_info
 
 
 def bin_sum(A, B):
@@ -17,24 +17,23 @@ def bin_sum(A, B):
     return C[::-1]
 
 
-def main_binsum(file_in, file_out, file_t):
+def main_binsum(file_in, file_out, file_info):
     t_start = time.perf_counter()
+    tracemalloc.start()
 
-    file_time = write_file(file_t)
     file_input = read_file(file_in)
-    file_output = write_file(file_out)
 
     n1, n2 = map(str, file_input[0].split())
     if (not (1 <= len(n1) <= 10 ** 3)) or (not (1 <= len(n2) <= 10 ** 3)):
-        file_output.write('Одно из чисел выходит за ограничение')
-        close_files(file_time, file_output)
+        write_file(file_out, 'Одно из чисел выходит за ограничение')
         exit('Одно из чисел выходит за ограничение')
 
     A, B = str_to_list(n1), str_to_list(n2)
 
     C = bin_sum(A, B)
-    file_output.write(list_to_str(C))
 
-    file_time.write(f'time: {time.perf_counter() - t_start}')
+    time_ac = time.perf_counter() - t_start
+    memory = tracemalloc.get_traced_memory()[1] / 2 ** 20
 
-    close_files(file_time, file_output)
+    write_info(file_info, time_ac, memory)
+    write_file(file_out, list_to_str(C))
