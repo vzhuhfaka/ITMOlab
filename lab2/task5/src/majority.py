@@ -1,5 +1,5 @@
 import time, tracemalloc
-from lab2.utils import read_file, write_file, close_files, write_info
+from lab2.utils import read_file, write_file, write_info
 
 
 def majority_number(A):
