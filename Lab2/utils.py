@@ -3,6 +3,11 @@ def close_files(*args):
         i.close()
 
 
+def write_info(file, _time, memory):
+    with open(file, 'w+') as f:
+        f.write(f'time: {_time} s\nmemory: {memory} Mb')
+
+
 def list_to_str(ar):
     res = ''
     for i in ar:
@@ -23,8 +28,9 @@ def read_file(file):
         return f.readlines()
 
 
-def write_file(file):
-    return open(file, 'w+')
+def write_file(file, text):
+    with open(file, 'w+') as f:
+        f.write(text)
 
 
 def txt_to_str(file_txt):
