@@ -1,5 +1,4 @@
-import time, tracemalloc
-from lab2.utils import read_file, write_file, close_files, write_info
+from lab2.utils import write_in_file, write_info, start_collect
 
 
 def BinSearch(A, n):
@@ -27,10 +26,7 @@ def BinSearch(A, n):
 
 
 def search(input_file, output_file, info_file):
-    t_start = time.perf_counter()
-    tracemalloc.start()
-
-    in_f = read_file(input_file)
+    t_start, tracemalloc, in_f = start_collect(input_file)
 
     a = in_f[1].strip()
     b = in_f[3].strip()
@@ -38,10 +34,5 @@ def search(input_file, output_file, info_file):
     for i in b.split():
         result_s += str(BinSearch(a.split(), i)) + ' '
 
-    time_ac = time.perf_counter() - t_start
-    memory = tracemalloc.get_traced_memory()[1] / 2 ** 20
-
-    write_info(info_file, time_ac, memory)
-    write_file(output_file, result_s)
-
-    tracemalloc.stop()
+    write_info(info_file, t_start, tracemalloc)
+    write_in_file(output_file, result_s)

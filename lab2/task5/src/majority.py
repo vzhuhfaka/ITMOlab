@@ -1,5 +1,4 @@
-import time, tracemalloc
-from lab2.utils import read_file, write_file, write_info
+from lab2.utils import write_in_file, write_info, start_collect
 
 
 def majority_number(A):
@@ -23,20 +22,12 @@ def majority_number(A):
 
 
 def majority(input_file, output_file, info_file):
-    t_start = time.perf_counter()
-    tracemalloc.start()
-
-    in_f = read_file(input_file)
+    t_start, tracemalloc, in_f = start_collect(input_file)
 
     ar = in_f[1].split()
-
     if ar.count(majority_number(ar)) > len(ar) / 2:
-        write_file(output_file, '1')
+        write_in_file(output_file, '1')
     else:
-        write_file(output_file, '0')
+        write_in_file(output_file, '0')
 
-    time_ac = time.perf_counter() - t_start
-    memory = tracemalloc.get_traced_memory()[1] / 2 ** 20
-
-    write_info(info_file, time_ac, memory)
-    tracemalloc.stop()
+    write_info(info_file, t_start, tracemalloc)

@@ -1,5 +1,4 @@
-import time, tracemalloc
-from lab2.utils import read_file, write_file, close_files, write_info
+from lab2.utils import write_in_file, write_info, start_collect
 
 
 def Merge(A, p, q, r):
@@ -43,11 +42,9 @@ def MergeSort(A, p, r):
         Merge(A, p, q, r)
     return A
 
-def main(input_file, output_file, info_file):
-    t_start = time.perf_counter()
-    tracemalloc.start()
 
-    in_f = read_file(input_file)
+def main(input_file, output_file, info_file):
+    t_start, tracemalloc, in_f = start_collect(input_file)
 
     A = [int(x) for x in in_f[1].split()]
 
@@ -55,15 +52,9 @@ def main(input_file, output_file, info_file):
 
     A = MergeSort(A, p, r)
 
-    time_ac = time.perf_counter() - t_start
-    memory = tracemalloc.get_traced_memory()[1] / 2 ** 20
-
-    write_info(info_file, time_ac, memory)
-
-    tracemalloc.stop()
-
     res_s = ''
     for i in A:
         res_s += str(i) + ' '
 
-    write_file(output_file, res_s)
+    write_info(info_file, t_start, tracemalloc)
+    write_in_file(output_file, res_s)
