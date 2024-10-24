@@ -14,7 +14,6 @@ def BinSearch(A, n):
 
     while left <= right:
         mid = (left + right) // 2
-
         if n == A[mid]:
             return mid
         elif n > A[mid]:
