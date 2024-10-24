@@ -56,5 +56,4 @@ def txt_to_list(file_txt):
     with open(file_txt, 'r') as f:
         for i in f.readline().split():
             res.append(int(i))
-
     return res

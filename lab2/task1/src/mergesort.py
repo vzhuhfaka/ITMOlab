@@ -50,7 +50,6 @@ def main(input_file, output_file, info_file):
 
     p, r = 0, len(A) - 1
     A = MergeSort(A, p, r)
-
     res_s = ''
     for i in A:
         res_s += str(i) + ' '
