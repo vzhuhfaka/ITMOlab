@@ -49,7 +49,6 @@ def main(input_file, output_file, info_file):
     A = [int(x) for x in in_f[1].split()]
 
     p, r = 0, len(A) - 1
-
     A = MergeSort(A, p, r)
 
     res_s = ''

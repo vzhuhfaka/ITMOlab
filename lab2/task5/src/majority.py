@@ -11,7 +11,6 @@ def majority_number(A):
 
     if left == right:
         return left
-
     left_count = A.count(left)
     right_count = A.count(right)
 
