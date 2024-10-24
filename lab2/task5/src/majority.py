@@ -24,7 +24,6 @@ def majority(input_file, output_file, info_file):
     t_start, tracemalloc, in_f = start_collect(input_file)
 
     ar = in_f[1].split()
-
     if ar.count(majority_number(ar)) > len(ar) / 2:
         write_in_file(output_file, '1')
     else:
