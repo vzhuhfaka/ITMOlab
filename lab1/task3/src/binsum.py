@@ -17,7 +17,7 @@ def bin_sum(A, B):
 
 
 def main_binsum(file_in, file_output, info_file):
-    t_start, tracemalloc, file_input = start_collect(file_in)
+    t_start, tracemalloc_s, file_input = start_collect(file_in)
 
     n1, n2 = map(str, file_input[0].split())
 
@@ -25,5 +25,5 @@ def main_binsum(file_in, file_output, info_file):
 
     C = bin_sum(A, B)
 
-    write_info(info_file, t_start, tracemalloc)
+    write_info(info_file, t_start, tracemalloc_s)
     write_in_file(file_output, list_to_str(C))

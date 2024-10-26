@@ -8,9 +8,12 @@ def start_collect(input_file):
     return t_start, tracemalloc, in_f
 
 
-def write_info(file, _time, memory):
+def write_info(file, t_start, tracemalloc):
     with open(file, 'w+') as f:
-        f.write(f'time: {_time} s\nmemory: {memory} Mb')
+        time_ac = time.perf_counter() - t_start
+        memory = tracemalloc.get_traced_memory()[1] / 2 ** 20
+        f.write(f'time: {time_ac} s\nmemory: {memory} Mb')
+        tracemalloc.stop()
 
 
 def list_to_str(ar):
