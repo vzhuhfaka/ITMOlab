@@ -1,13 +1,19 @@
-def write_info(file, _time, memory):
+import time, tracemalloc
+
+
+def start_collect(input_file):
+    t_start = time.perf_counter()
+    tracemalloc.start()
+    in_f = read_file(input_file)
+    return t_start, tracemalloc, in_f
+
+
+def write_info(file, t_start, tracemalloc):
     with open(file, 'w+') as f:
-        f.write(f'time: {_time} s\nmemory: {memory} Mb')
-
-
-def checker(ar,n):
-    for i in ar:
-        if abs(i) > 10**n:
-            return False
-    return True
+        time_ac = time.perf_counter() - t_start
+        memory = tracemalloc.get_traced_memory()[1] / 2 ** 20
+        f.write(f'time: {time_ac} s\nmemory: {memory} Mb')
+        tracemalloc.stop()
 
 
 def list_to_str(ar):
@@ -30,7 +36,7 @@ def read_file(file):
         return f.readlines()
 
 
-def write_file(file, text):
+def write_in_file(file, text):
     with open(file, 'w+') as f:
         f.write(text)
 
