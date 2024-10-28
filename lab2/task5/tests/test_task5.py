@@ -1,5 +1,5 @@
 import unittest
-from lab2.task5.src.majority import majority
+from lab2.task5.src.task5 import majority
 from lab2.utils import txt_to_str
 
 
