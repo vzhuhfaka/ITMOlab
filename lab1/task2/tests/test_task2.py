@@ -1,5 +1,5 @@
 import unittest
-from lab1.task2.src.linearfinder import linearfinder
+from lab1.task2.src.task2 import linearfinder
 from lab1.utils import txt_to_numlist
 
 

@@ -1,5 +1,5 @@
 import unittest
-from lab1.task1.src.insertionsort import insertionsort
+from lab1.task1.src.task1 import insertionsort
 from lab1.utils import txt_to_list
 
 

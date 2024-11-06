@@ -21,3 +21,7 @@ def linearfinder(file_in, file_output, info_file):
 
     write_info(info_file, t_start, tracemalloc)
     write_in_file(file_output, res_s)
+
+
+if __name__ == '__main__':
+    linearfinder('../txtf/test_input.txt', '../txtf/test_output.txt', '../txtf/info.txt')

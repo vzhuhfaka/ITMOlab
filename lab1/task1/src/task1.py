@@ -21,3 +21,7 @@ def insertionsort(file_in, file_out, file_t):
 
     write_info(file_t, t_start, tracemalloc)
     write_in_file(file_out, res_s)
+
+
+if __name__ == '__main__':
+    insertionsort('../txtf/test_input.txt', '../txtf/test_output.txt', '../txtf/test_info.txt')
