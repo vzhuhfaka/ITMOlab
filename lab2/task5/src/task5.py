@@ -30,3 +30,7 @@ def majority(input_file, output_file, info_file):
         write_in_file(output_file, '0')
 
     write_info(info_file, t_start, tracemalloc)
+
+
+if __name__ == '__main__':
+    majority('../txtf/input.txt', '../txtf/output.txt', '../txtf/info.txt')

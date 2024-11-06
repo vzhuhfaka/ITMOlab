@@ -55,3 +55,7 @@ def main(input_file, output_file, info_file):
 
     write_info(info_file, t_start, tracemalloc)
     write_in_file(output_file, res_s)
+
+
+if __name__ == '__main__':
+    main('../txtf/input.txt', '../txtf/output.txt', '../txtf/info.txt')

@@ -27,3 +27,7 @@ def main_binsum(file_in, file_output, info_file):
 
     write_info(info_file, t_start, tracemalloc_s)
     write_in_file(file_output, list_to_str(C))
+
+
+if __name__ == '__main__':
+    main_binsum('../txtf/test_input.txt', '../txtf/test_output.txt', '../txtf/test_time.txt')
