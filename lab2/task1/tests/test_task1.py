@@ -7,8 +7,4 @@ class TestMegreSearch(unittest.TestCase):
 
     def test_mergesort(self):
         main('lab2/task1/txtf/input.txt', 'lab2/task1/txtf/output.txt', 'lab2/task1/txtf/info.txt')
-<<<<<<< HEAD
-=======
-
->>>>>>> 257067c (refactor)
         self.assertEqual(txt_to_list('lab2/task1/txtf/output.txt'), [0, 1, 2, 4, 6])
