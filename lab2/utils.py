@@ -4,21 +4,22 @@ import time, tracemalloc
 def start_collect(input_file):
     t_start = time.perf_counter()
     tracemalloc.start()
-    in_f = read_file(input_file)
+    in_f = read_lines(input_file)
     return t_start, tracemalloc, in_f
 
 
-def close_files(*args):
-    for i in args:
-        i.close()
+def write_info(path_info, func, input_data):
+    time_start = time.perf_counter()
+    tracemalloc.start()
 
+    func(input_data)
 
-def write_info(file, t_start, tracemalloc):
-    with open(file, 'w+') as f:
-        time_ac = time.perf_counter() - t_start
-        memory = tracemalloc.get_traced_memory()[1] / 2 ** 20
-        f.write(f'time: {time_ac} s\nmemory: {memory} Mb')
-        tracemalloc.stop()
+    memory = tracemalloc.get_traced_memory()
+    tracemalloc.stop()
+    time_ac = time.perf_counter() - time_start
+    with open(path_info, 'w+') as f:
+        f.write(f'time: {time_ac} s\nmemory: {memory[1] / 2 ** 20} Mb')
+
 
 
 def list_to_str(ar):
@@ -29,24 +30,26 @@ def list_to_str(ar):
 
 
 def str_to_list(s):
-    s = str(s)
     res = []
-    for i in s:
+    for i in s.split():
         res.append(i)
     return res
 
 
-def read_file(file):
+def read_lines(file):
     with open(file, 'r') as f:
         return f.readlines()
 
 
 def write_in_file(file, text):
     with open(file, 'w+') as f:
-        f.write(text)
+        if isinstance(text, list):
+            f.write(str(text)[1:-1])
+        elif isinstance(text, str):
+            f.write(text)
 
 
-def txt_to_str(file_txt):
+def read_line(file_txt):
     with open(file_txt, 'r') as f:
         return f.readline()
 
