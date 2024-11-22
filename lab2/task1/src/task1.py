@@ -1,4 +1,4 @@
-from lab2.utils import write_in_file, write_info, start_collect
+from lab1.utils import read_file
 
 
 def Merge(A, p, q, r):
@@ -43,19 +43,14 @@ def MergeSort(A, p, r):
     return A
 
 
-def main(input_file, output_file, info_file):
-    t_start, tracemalloc, in_f = start_collect(input_file)
-
-    A = [int(x) for x in in_f[1].split()]
+def main(input_data):
+    A = [int(x) for x in input_data[1].split()]
     p, r = 0, len(A) - 1
     A = MergeSort(A, p, r)
-    res_s = ''
-    for i in A:
-        res_s += str(i) + ' '
-
-    write_info(info_file, t_start, tracemalloc)
-    write_in_file(output_file, res_s)
+    return A
 
 
 if __name__ == '__main__':
-    main('../txtf/input.txt', '../txtf/output.txt', '../txtf/info.txt')
+    input_file = read_file('../txtf/input.txt')
+    ans = main(input_file)
+    print(ans)
