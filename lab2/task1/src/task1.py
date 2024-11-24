@@ -40,7 +40,7 @@ def MergeSort(A, p, r):
         MergeSort(A, p, q)
         MergeSort(A, q + 1, r)
         Merge(A, p, q, r)
-    return A
+
 
 
 if __name__ == '__main__':
@@ -48,7 +48,7 @@ if __name__ == '__main__':
     path_output = '../txtf/output.txt'
 
     array = read_lines(path_input)[1] # берём вторую строчку, так как в первой число элементов
-    ans = MergeSort(array, 0, len(array)-1)
+    MergeSort(array, 0, len(array)-1)
 
-    write_in_file(path_output, ans)
-    print(ans)
+    write_in_file(path_output, array)
+    print(array)
