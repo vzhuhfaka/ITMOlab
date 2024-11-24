@@ -21,7 +21,6 @@ def write_info(path_info, func, input_data):
         f.write(f'time: {time_ac} s\nmemory: {memory[1] / 2 ** 20} Mb')
 
 
-
 def list_to_str(ar):
     res = ''
     for i in ar:
@@ -37,9 +36,15 @@ def str_to_list(s):
 
 
 def read_lines(file):
+    lines = []
     with open(file, 'r') as f:
-        return f.readlines()
-
+        for i in f.readlines():
+            el = []
+            for j in i.strip():
+                if j != ' ':
+                    el.append(int(j))
+            lines.append(el)
+    return lines
 
 def write_in_file(file, text):
     with open(file, 'w+') as f:

@@ -1,4 +1,4 @@
-from lab1.utils import read_file
+from lab2.utils import read_lines, write_in_file
 
 
 def Merge(A, p, q, r):
@@ -43,14 +43,12 @@ def MergeSort(A, p, r):
     return A
 
 
-def main(input_data):
-    A = [int(x) for x in input_data[1].split()]
-    p, r = 0, len(A) - 1
-    A = MergeSort(A, p, r)
-    return A
-
-
 if __name__ == '__main__':
-    input_file = read_file('../txtf/input.txt')
-    ans = main(input_file)
+    path_input = '../txtf/input.txt'
+    path_output = '../txtf/output.txt'
+
+    array = read_lines(path_input)[1] # берём вторую строчку, так как в первой число элементов
+    ans = MergeSort(array, 0, len(array)-1)
+
+    write_in_file(path_output, ans)
     print(ans)
