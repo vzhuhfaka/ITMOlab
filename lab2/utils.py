@@ -40,7 +40,7 @@ def read_lines(file):
     with open(file, 'r') as f:
         for i in f.readlines():
             el = []
-            for j in i.strip():
+            for j in i.strip().split():
                 if j != ' ':
                     el.append(int(j))
             lines.append(el)
