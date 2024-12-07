@@ -1,18 +1,30 @@
+import time, tracemalloc
 import unittest
-from lab2.task1.src.task1 import main
-from lab2.utils import read_lines, write_in_file, write_info
+from lab2.task1.src.task1 import merge_sort
 
 
 class TestMegreSearch(unittest.TestCase):
 
-    def test_mergesort(self):
-        path_input = 'lab2/task1/txtf/input.txt'
-        path_output = 'lab2/task1/txtf/output.txt'
-        path_info = 'lab2/task1/txtf/info.txt'
-        input_data = read_lines(path_input)
+    def test_should_merge_sort(self):
+        # given
+        array = [2, 1, 4, 6, 0]
+        must_be_array = [0, 1, 2, 4, 6]
+        time_limit = 2
+        memory_limit = 256
 
-        ans = main(input_data)
+        # when
+        time_start = time.perf_counter()
+        tracemalloc.start()
 
-        write_info(path_info, main, input_data)
-        write_in_file(path_output, ans)
-        self.assertEqual(ans, [0, 1, 2, 4, 6])
+        sorted_array = merge_sort(array)
+
+        memory_used = tracemalloc.get_traced_memory()
+        memory_used_in_mb = memory_used[1] / 2 ** 20
+
+        tracemalloc.stop()
+        time_spent = time.perf_counter() - time_start
+
+        # then
+        self.assertEqual(sorted_array, must_be_array)
+        self.assertLessEqual(time_spent, time_limit)
+        self.assertLessEqual(memory_used_in_mb, memory_limit)
