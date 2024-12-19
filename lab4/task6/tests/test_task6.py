@@ -1,6 +1,6 @@
 import time, tracemalloc
 import unittest
-from lab4.task6.src.task6 import get_queue_minimals
+from lab4.task6.src.task6 import Queue
 
 
 class TestTask6(unittest.TestCase):
@@ -16,7 +16,15 @@ class TestTask6(unittest.TestCase):
         time_start = time.perf_counter()
         tracemalloc.start()
 
-        result = get_queue_minimals(commands_format)
+        result = []
+        queue = Queue([])
+        for i in commands_format:
+            if i == '?':
+                result.append(queue.get_min_element())
+            elif i == '-':
+                queue.queue_take()
+            else:
+                queue.queue_add(i)
 
         memory_used = tracemalloc.get_traced_memory()
         memory_used_in_mb = memory_used[1] / 2 ** 20
