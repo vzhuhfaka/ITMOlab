@@ -1,14 +1,14 @@
 import time, tracemalloc
 import unittest
-from lab4.task1.src.task1 import get_stack_deletions
+from lab5.task6.src.task6 import main
 
 
-class TestTask1(unittest.TestCase):
+class TestTask6(unittest.TestCase):
 
-    def test_should_get_stack_deletions(self):
+    def test_should_get_queue_minimals(self):
         # given
-        commands = ['3', '-', '6', '182', '5', '-', '-', '99', '-']
-        exception_deletions = ['3', '5', '182', '99']
+        commands = ['A 3', 'A 4', 'A 2', 'X', 'D 2 1', 'X', 'X', 'X']
+        exception_result = ['2', '1', '3', '*']
         limit_time = 2
         limit_memory = 256
 
@@ -16,7 +16,7 @@ class TestTask1(unittest.TestCase):
         time_start = time.perf_counter()
         tracemalloc.start()
 
-        deletions = get_stack_deletions(commands)
+        result = main(commands)
 
         memory_used = tracemalloc.get_traced_memory()
         memory_used_in_mb = memory_used[1] / 2 ** 20
@@ -25,6 +25,8 @@ class TestTask1(unittest.TestCase):
         time_spent = time.perf_counter() - time_start
 
         # then
-        self.assertEqual(deletions, exception_deletions)
+        self.assertEqual(result, exception_result)
         self.assertLessEqual(time_spent, limit_time)
         self.assertLessEqual(memory_used_in_mb, limit_memory)
+
+        print(time_spent, memory_used_in_mb)
