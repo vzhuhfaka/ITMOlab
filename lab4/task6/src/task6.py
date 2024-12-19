@@ -18,24 +18,49 @@ def format_data(commands: list) -> list:
     return commands_format
 
 
-def get_queue_minimals(commands: list) -> list:
-    """
-    Получает минимальные элементы из очереди по ходу выполнения команд
+class Queue:
+    def __init__(self, queue: list):
+        self.queue = queue
 
-    Пример:
-    ['1', '?', '-', '13', '4', '?'] -> ['1', '4']
-    """
-    queue = []
-    minimals = []
-    for i in commands:
-        if i == '?':
-            min_element = str(min([int(i) for i in queue]))
-            minimals.append(min_element)
-        elif i == '-':
-            queue.pop(0)
-        else:
-            queue.append(i)
-    return minimals
+    def get_queue(self):
+        """
+        Возвращает очередь
+        """
+        return self.queue
+
+    def queue_take(self):
+        """
+        Берёт элемент из очереди, при этом удаляя его
+        Пример: [1, 2, 3] -> 3 и [1, 2]
+        """
+        last_element = self.queue[0]
+        self.queue = self.queue[1:]
+        return last_element
+
+    def queue_add(self, number):
+        """
+        Добавляет элемент в очередь
+        """
+        self.queue.append(number)
+
+    def get_min_element(self):
+        """
+        Возвращает минимальный элемент из очереди
+        """
+        min_el = 10 ** 10
+        # В этом цикле находим наименьшее число в очереди
+        for i in range(len(self.queue)):
+            el = self.queue_take()
+            min_el = min(min_el, int(el))
+            self.queue_add(el)
+
+        # В этом цикле берём наименьшее число из очереди
+        for i in range(len(self.queue)):
+            el = self.queue_take()
+            if int(el) == min_el:
+                min_el = el
+            self.queue_add(el)
+        return min_el
 
 
 def task6():
@@ -45,11 +70,18 @@ def task6():
     commands = read_data(PATH_INPUT)[1:]  # не считаем первую строчку, так как там количество элементов
     commands_format = format_data(commands)
 
-    result = get_queue_minimals(commands_format)
-    result_format = '\n'.join(result)
+    minimal_elements = []
+    queue = Queue([])
+    for i in commands_format:
+        if i == '?':
+            minimal_elements.append(queue.get_min_element())
+        elif i == '-':
+            queue.queue_take()
+        else:
+            queue.queue_add(i)
 
-    write_data(PATH_OUTPUT, result_format)
-    print(result_format)
+    write_data(PATH_OUTPUT, '\n'.join([i for i in minimal_elements]))
+    print(minimal_elements)
 
 
 if __name__ == "__main__":
