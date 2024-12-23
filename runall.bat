@@ -21,3 +21,6 @@ python lab5\task6\src\task6.py
 python lab6\task1\src\task1.py
 python lab6\task2\src\task2.py
 python lab6\task5\src\task5.py
+
+python lab7\task1\src\task1.py
+python lab7\task3\src\task3.py
