@@ -1,3 +1,10 @@
+import os
+import sys
+
+current_dir = os.path.dirname(__file__)
+parent_dir = os.path.abspath(os.path.join(current_dir, '..', '..', '..'))
+sys.path.insert(0, parent_dir)
+
 from lab4.utils import read_data, write_data
 
 
@@ -37,8 +44,10 @@ def format_input(commands: list) -> list:
 
 
 def task1():
-    path_input = '../txtf/input.txt'
-    path_output = '../txtf/output.txt'
+    path_input = 'lab4/task1/txtf/input.txt'
+    path_output = 'lab4/task1/txtf/output.txt'
+
+    origin_input = read_data(path_input)
 
     commands = read_data(path_input)[1:]  # не считаем первую строчку, так как там количество элементов
     commands_format = format_input(commands)
@@ -46,6 +55,7 @@ def task1():
     deleted_elements_str = ', '.join(deleted_elements)  # преобразуем список в строку
 
     write_data(path_output, deleted_elements_str)
+    print(origin_input)
     print(deleted_elements)
 
 

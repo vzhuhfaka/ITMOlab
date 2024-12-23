@@ -1,3 +1,10 @@
+import os
+import sys
+
+current_dir = os.path.dirname(__file__)
+parent_dir = os.path.abspath(os.path.join(current_dir, '..', '..', '..'))
+sys.path.insert(0, parent_dir)
+
 from lab2.utils import read_lines, write_in_file
 
 
@@ -28,13 +35,15 @@ def merge_sort(A):
 
 
 def task1():
-    path_input = '../txtf/input.txt'
-    path_output = '../txtf/output.txt'
+    path_input = 'lab2/task1/txtf/input.txt'
+    path_output = 'lab2/task1/txtf/output.txt'
 
+    origin_input = read_lines(path_input)
     array = read_lines(path_input)[1]  # берём вторую строчку, так как в первой число элементов
     sorted_array = merge_sort(array)
 
     write_in_file(path_output, array)
+    print(origin_input)
     print(sorted_array)
 
 
