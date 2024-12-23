@@ -1,3 +1,10 @@
+import os
+import sys
+
+current_dir = os.path.dirname(__file__)
+parent_dir = os.path.abspath(os.path.join(current_dir, '..', '..', '..'))
+sys.path.insert(0, parent_dir)
+
 from lab4.utils import read_data, write_data
 
 
@@ -64,8 +71,8 @@ class Queue:
 
 
 def task6():
-    PATH_INPUT = '../txtf/input.txt'
-    PATH_OUTPUT = '../txtf/output.txt'
+    PATH_INPUT = 'lab4/task6/txtf/input.txt'
+    PATH_OUTPUT = 'lab4/task6/txtf/output.txt'
 
     commands = read_data(PATH_INPUT)[1:]  # не считаем первую строчку, так как там количество элементов
     commands_format = format_data(commands)

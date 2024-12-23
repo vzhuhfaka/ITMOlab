@@ -1,3 +1,10 @@
+import os
+import sys
+
+current_dir = os.path.dirname(__file__)
+parent_dir = os.path.abspath(os.path.join(current_dir, '..', '..', '..'))
+sys.path.insert(0, parent_dir)
+
 from lab3.utils import read_lines, write_in_file
 import random
 
@@ -23,8 +30,8 @@ def task1(array: list) -> list:
 
 
 if __name__ == '__main__':
-    path_input = '../txtf/input.txt'
-    path_output = '../txtf/output.txt'
+    path_input = 'lab3/task1/txtf/input.txt'
+    path_output = 'lab3/task1/txtf/output.txt'
 
     array = read_lines(path_input)[1]  # берём вторую строчку, так как в первой число элементов
     sorted_array = task1(array)
