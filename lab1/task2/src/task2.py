@@ -20,11 +20,13 @@ def task2():
     path_input = 'lab1/task2/txtf/input.txt'
     path_output = 'lab1/task2/txtf/output.txt'
 
+    origin_input = read_lines(path_input)
     array = read_lines(path_input)[0]
     need_to_find = read_lines(path_input)[1][0]
     found_n = linearfinder(array, need_to_find)
 
     write_in_file(path_output, found_n)
+    print(origin_input)
     print(found_n)
 
 

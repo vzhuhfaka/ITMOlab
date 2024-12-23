@@ -38,10 +38,12 @@ def task1():
     path_input = 'lab2/task1/txtf/input.txt'
     path_output = 'lab2/task1/txtf/output.txt'
 
+    origin_input = read_lines(path_input)
     array = read_lines(path_input)[1]  # берём вторую строчку, так как в первой число элементов
     sorted_array = merge_sort(array)
 
     write_in_file(path_output, array)
+    print(origin_input)
     print(sorted_array)
 
 

@@ -31,12 +31,14 @@ def task3():
     path_input = 'lab1/task3/txtf/input.txt'
     path_output = 'lab1/task3/txtf/output.txt'
 
+    origin_input = read_lines(path_input)
     input_str = read_lines(path_input)[0]
     A = input_str[0]
     B = input_str[1]
     C = bin_sum(A, B)
 
     write_in_file(path_output, C)
+    print(origin_input)
     print(C)
 
 

@@ -97,10 +97,13 @@ def task3():
     PATH_INPUT = 'lab5/task6/txtf/input.txt'
     PATH_OUTPUT = 'lab5/task6/txtf/output.txt'
 
+    origin_input = read_data(PATH_INPUT)
+
     commands = read_data(PATH_INPUT)[1:]
     result = main(commands)
 
     write_data(PATH_OUTPUT, '\n'.join([i for i in result]))
+    print(origin_input)
     print(result)
 
 

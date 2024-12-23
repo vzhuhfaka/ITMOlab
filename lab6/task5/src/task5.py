@@ -84,10 +84,13 @@ def task5():
     PATH_INPUT = 'lab6/task5/txtf/input.txt'
     PATH_OUTPUT = 'lab6/task5/txtf/output.txt'
 
+    origin_input = read_data(PATH_INPUT)
+
     data_ = [i.strip().split() for i in read_data(PATH_INPUT)]
     result = main(data_)
 
     write_data(PATH_OUTPUT, '\n'.join([f'{i[0]} {i[1]}' for i in result]))
+    print(origin_input)
     print(result)
 
 

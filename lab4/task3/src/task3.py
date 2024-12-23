@@ -33,6 +33,8 @@ def task3():
     PATH_INPUT = 'lab4/task3/txtf/input.txt'
     PATH_OUTPUT = 'lab4/task3/txtf/output.txt'
 
+    origin_input = read_data(PATH_INPUT)
+
     brackets = read_data(PATH_INPUT)
     answer = ''
     for i in brackets[1:]:
@@ -42,6 +44,7 @@ def task3():
             answer += 'NO\n'
 
     write_data(PATH_OUTPUT, answer)
+    print(origin_input)
     print(answer)
 
 

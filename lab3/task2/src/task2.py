@@ -19,8 +19,11 @@ if __name__ == '__main__':
     path_input = 'lab3/task2/txtf/input.txt'
     path_output = 'lab3/task2/txtf/output.txt'
 
+    origin_input = read_lines(path_input)
+
     n = read_lines(path_input)[0][0]
     worst_array = task2(n)
 
     write_in_file(path_output, worst_array)
+    print(origin_input)
     print(worst_array)

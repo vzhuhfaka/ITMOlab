@@ -30,6 +30,8 @@ def task1():
     PATH_INPUT = 'lab5/task4/txtf/input.txt'
     PATH_OUTPUT = 'lab5/task4/txtf/output.txt'
 
+    origin_input = read_data(PATH_INPUT)
+
     data = read_data(PATH_INPUT)
     array_ = [int(i) for i in data[1].split(' ')]
     n = int(data[0])
@@ -38,6 +40,7 @@ def task1():
     # Записывает результат в файл, используя форматирование
     # Пример: [[(0, 4), (1, 3)], 2] -> '2\n 0 4\n 1 3'
     write_data(PATH_OUTPUT, f'{result[1]}\n' + '\n'.join([str(key) + ' ' + str(value) for key, value in result[0]]))
+    print(origin_input)
     print(result)
 
 

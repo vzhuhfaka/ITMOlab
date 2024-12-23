@@ -34,10 +34,13 @@ if __name__ == '__main__':
     path_input = 'lab3/task6/txtf/input.txt'
     path_output = 'lab3/task6/txtf/output.txt'
 
+    origin_input = read_lines(path_input)
+
     array_a = read_lines(path_input)[1]  # берём вторую строчку, так как в первой число элементов
     array_b = read_lines(path_input)[2]  # берём вторую строчку, так как в первой число элементов
 
     res = task6(array_a, array_b)
 
     write_in_file(path_output, res)
+    print(origin_input)
     print(res)

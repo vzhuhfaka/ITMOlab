@@ -35,6 +35,8 @@ def task4():
     path_input = 'lab2/task4/txtf/input.txt'
     path_output = 'lab2/task4/txtf/output.txt'
 
+    origin_input = read_lines(path_input)
+
     # Берём вторую строчку, так как в первой число элементов к списку чисел
     array = read_lines(path_input)[1]
 
@@ -46,6 +48,7 @@ def task4():
         result += str(BinSearch(array, i)) + ' '
 
     write_in_file(path_output, result)
+    print(origin_input)
     print(result)
 
 

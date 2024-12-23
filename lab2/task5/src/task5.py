@@ -39,12 +39,15 @@ def task5():
     path_input = 'lab2/task5/txtf/input.txt'
     path_output = 'lab2/task5/txtf/output.txt'
 
+    origin_input = read_lines(path_input)
+
     # Берём вторую строчку, так как в первой число элементов к списку чисел
     array = read_lines(path_input)[1]
 
     result = majority(array)
 
     write_in_file(path_output, result)
+    print(origin_input)
     print(result)
 
 

@@ -32,6 +32,8 @@ def task11():
     PATH_INPUT = 'lab4/task11/txtf/input.txt'
     PATH_OUTPUT = 'lab4/task11/txtf/output.txt'
 
+    origin_input = read_data(PATH_INPUT)
+
     # В первой строке берём второе значение, так как это количество выдаваемых справок
     certificates_number = read_data(PATH_INPUT)[0].split()[1]
     queue = read_data(PATH_INPUT)[1].split()
@@ -42,6 +44,7 @@ def task11():
         write_data(PATH_OUTPUT, str(result))
     else:
         write_data(PATH_OUTPUT, f'{result[0]} \n{str(result[1])[1:-1]}')
+        print(origin_input)
     print(result[1])
 
 

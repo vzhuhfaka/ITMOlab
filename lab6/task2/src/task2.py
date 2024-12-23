@@ -69,11 +69,14 @@ def task2():
     PATH_INPUT = 'lab6/task2/txtf/input.txt'
     PATH_OUTPUT = 'lab6/task2/txtf/output.txt'
 
+    origin_input = read_data(PATH_INPUT)
+
     data_split = [i.strip().split() for i in read_data(PATH_INPUT)[1:]]
 
     result = main(data_split)
 
     write_data(PATH_OUTPUT, '\n'.join(result))
+    print(origin_input)
     print(result)
 
 

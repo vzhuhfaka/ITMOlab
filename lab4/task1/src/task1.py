@@ -47,12 +47,15 @@ def task1():
     path_input = 'lab4/task1/txtf/input.txt'
     path_output = 'lab4/task1/txtf/output.txt'
 
+    origin_input = read_data(path_input)
+
     commands = read_data(path_input)[1:]  # не считаем первую строчку, так как там количество элементов
     commands_format = format_input(commands)
     deleted_elements = get_stack_deletions(commands_format)
     deleted_elements_str = ', '.join(deleted_elements)  # преобразуем список в строку
 
     write_data(path_output, deleted_elements_str)
+    print(origin_input)
     print(deleted_elements)
 
 
